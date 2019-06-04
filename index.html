@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        hello world, {{msg}}
+        <div>
+            <input type="text" v-model="info">
+            <button v-on:click="handlerClick">add</button>
+        </div>
+        <ul>
+            <li v-for="item in list">{{item}}</li>
+        </ul>
+    </div>
+
+
+
+
+    <script>
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    msg: 'hahahah',
+                    info: '',
+                    list: [1]
+                }
+            },
+            methods: {
+                handlerClick: function() {
+                    this.list.push(this.info)
+                }
+            }
+        })
+    </script>
+</body>
+</html>
