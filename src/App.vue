@@ -1,17 +1,32 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+
+    <TodoItem
+        v-for="item in list"
+        v-bind:item="item"
+        v-on:delete="handleDelete"
+    ></TodoItem>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import TodoItem from './components/TodoItem.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    TodoItem
+  },
+  data() {
+    return {
+      list: ['学习Vue事件', '学习Vue属性', '学习Vue插槽']
+    }
+  },
+  methods: {
+    handleDelete(item) {
+      const index = this.list.indexOf(item);
+      this.list.splice(index, 1);
+    }
   }
 }
 </script>
